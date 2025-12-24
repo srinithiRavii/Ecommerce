@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'category',
     'accounts',
+    'store',
 ]
 
 MIDDLEWARE = [
@@ -122,3 +123,5 @@ STATIC_ROOT=BASE_DIR/'static'
 STATICFILES_DIRS=[
     'greatkart/static',
 ]
+MEDIA_URL='/media/'
+MEDIA_ROOT=BASE_DIR/'media'
