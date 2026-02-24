@@ -14,7 +14,11 @@
 <!-- ========================= SECTION PAGETOP ========================= -->
 <section class="section-pagetop bg">
 <div class="container">
+	{% if 'search' in request.path %}
+	<h2 class="title-page">Search Results</h2>
+	{% else %}
 	<h2 class="title-page">Our Store</h2>
+	{% endif %}
 	
 </div> <!-- container //  -->
 </section>
@@ -25,6 +29,7 @@
 <div class="container">
 
 <div class="row">
+	
 	<aside class="col-md-3">
 		
 <div class="card">
@@ -42,6 +47,8 @@
 				{% for category in links %}
 				<li><a href="#">{{category.category_name}} </a></li>
 				{% endfor %}
+				
+				
 				</ul>
 			</div> <!-- card-body.// -->
 		</div>
@@ -127,12 +134,13 @@
 
 <header class="border-bottom mb-4 pb-3">
 		<div class="form-inline">
-			<span class="mr-md-auto">{{product_count}} Items found </span>
+			<span class="mr-md-auto">{{ product_count }} Items found </span>
 			
 		</div>
 </header><!-- sect-heading -->
 
 <div class="row">
+	{% if products %}
 	{% for product in products %}
 	<div class="col-md-4">
 		<figure class="card card-product-grid">
@@ -154,6 +162,10 @@
 		</figure>
 	</div> <!-- col.// -->
 {% endfor %}
+{% else %}
+                <div>
+					<h2>No result Found..Try again</h2>
+				</div>{% endif %}
 </div>
 
 
